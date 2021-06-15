@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset='utf-8' />
+        <title>Axios Demo</title>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </header>
+    <body>
+        <h1>Axios demo</h1>
+        <script>
+            // to check if axios is available
+            console.log(axios)
+            // this works weird
+            // get executes and then get latest and then post 
+            // looks like post is not working as its request might be of limited access
+            axios.get('https://reqres.in/api/users/').then(response => {
+                console.log('get', response)
+            }).catch(error => {
+                console.log('get', error)
+            })
+            axios.post('https://reqres.in/api/users/', {
+                first_name: 'Vishwashree',
+                last_name: 'Challa',
+                email: 'vish@gmail.com',
+            }).then(response => {
+                console.log('post', response)
+            }).catch(error => {
+                console.log('post', error)
+            })
+            axios.get('https://reqres.in/api/users/').then(response => {
+                console.log('get latest', response)
+            }).catch(error => {
+                console.log('get', error)
+            })
+        </script>
+    </body>
+</html>
